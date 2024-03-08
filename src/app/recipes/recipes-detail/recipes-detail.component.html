@@ -1,0 +1,39 @@
+<div class="row" *ngIf="!recipe; else recipeDetail">
+    <div class="col-xs-12">
+        <h2>No recipe selected</h2>
+    </div>
+</div>
+<ng-template #recipeDetail>
+    <div class="row">
+        <div class="col-xs-12">
+            <img [src]="recipe?.imagePath" alt={{recipe?.name}} class="image-responsive" style="max-height: 50px;">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>{{recipe?.name}}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="btn-group" appDropdown>
+                <button class="btn btn-primary dropdown-toggle">Manage recipe <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Add to shopping list</a></li>
+                    <li><a href="#">Edit recipe</a></li>
+                    <li><a href="#">Delete recipe</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            {{recipe?.description}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            Ingredients
+        </div>
+    </div>
+</ng-template>
